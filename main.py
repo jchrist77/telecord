@@ -5,21 +5,11 @@ from telethon.tl.types import PeerChannel
 import logging
 import os
 
-# These example values won't work. You must get your own api_id and
-# api_hash from https://my.telegram.org, under API Development.
 api_id = os.getenv('TELEGRAM_API_ID')
 api_hash = os.getenv('TELEGRAM_API_HASH')
 phone = os.getenv('PHONE_NUMBER')
 discord_webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
-telegram_chats = (
-    'SharkSniper',
-    'CoinSniper',
-    'WallMonitor',
-    'binance_scanner',
-    'CocaKitty',
-    1151625426,	# Hodloo Binance 5%
-    1119530640,	# Hodloo Binance 10%
-)
+telegram_chats = os.getenv('TELEGRAM_CHATS', 'SharkSniper,CoinSniper,WallMonitor').split(',')
 
 logging.basicConfig(
     level=logging.INFO,
