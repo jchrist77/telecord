@@ -20,7 +20,14 @@ logger = logging.getLogger(__name__)
 client = TelegramClient(phone, api_id, api_hash, update_workers=4, spawn_read_thread=False)
 client.start()
 
-@client.on(events.NewMessage(chats=telegram_chats, incoming=True))
+chats = []
+for chat in telegram_chats:
+    if chat.isdigit():
+        chat = int(chat)
+    chats.append(chat)
+print('Channels: ', chats)
+
+@client.on(events.NewMessage(chats=chats, incoming=True))
 def event_handler(event):
     msg = Webhook(discord_webhook_url, msg=event.raw_text)
     msg.post()
