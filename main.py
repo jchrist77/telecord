@@ -34,8 +34,10 @@ print('Channels: ', chats)
 def event_handler(event):
     msg_text = event.text  # event.raw_text
     import re
-    url_reg = r'\((http[^)]+)\)'
-    msg_text = re.sub(url_reg, r'(<\1>)', msg_text)
+    #url_reg = r'\((http[^)]+)\)'
+    #msg_text = re.sub(url_reg, r'(<\1>)', msg_text)
+    url_reg = r'([a-z]*[:.]+[^\s\)]+)'
+    msg_text = re.sub(url_reg, r'<\1>', msg_text)
     msg = Webhook(discord_webhook_url, msg=msg_text)
     # print(event)
     print(event.input_sender, event.document, event.text)

@@ -10,6 +10,6 @@ text6    '''
 
 import re
 #url_reg = r'\((http[^)]+)\)'
-url_reg = r'([a-z]*[:.]+\S+)'
+url_reg = r'([a-z]*[:.]+[^\s\)]+)'
 result = re.sub(url_reg, r'<\1>', source_text)
 print(result)
