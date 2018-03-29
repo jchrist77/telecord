@@ -36,7 +36,7 @@ def event_handler(event):
     import re
     #url_reg = r'\((http[^)]+)\)'
     #msg_text = re.sub(url_reg, r'(<\1>)', msg_text)
-    url_reg = r'([a-z]*[:.]+[^\s\)]+)'
+    url_reg = r'(https?[:.]+[^\s\)]+)'
     msg_text = re.sub(url_reg, r'<\1>', msg_text)
     msg = Webhook(discord_webhook_url, msg=msg_text)
     # print(event)
