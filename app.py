@@ -11,6 +11,35 @@ phone = os.getenv('PHONE_NUMBER')
 #discord_webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
 #telegram_chats = os.getenv('TELEGRAM_CHATS', []).split(',')
 
+# 1. base-cracks-binance
+discord_webhook_1 = 'https://discordapp.com/api/webhooks/433634416837787649/HY7kU6BfNql1FoIwdFxzIrRo9tqRpTw7IUkIToas_O2tqjyNMOJ60RJfaHYcP6SqnR5Y'
+telegram_chats_1 = ('binance_scanner,1151625426,1119530640').split(',')
+
+# 2. base-cracks-bittrex
+discord_webhook_2 = 'https://discordapp.com/api/webhooks/433634706572050453/gn0auB-1ssEuGSzqLtgCPd3EjHQPCbJX9bjnuNiY5yLdyBdGTwCdpqR-pBPQdhfHI9T5'
+telegram_chats_2 = ('1158021569,1319829254').split(',')
+
+# 3. base-cracks-hitbtc
+discord_webhook_3 = 'https://discordapp.com/api/webhooks/433634828982812683/hU1zXSqN_H12ZQrMmTOXxbopzKFWy7a5AnNsgpcEsM0TFqHl2w69gpnP583Krr9Gfphv'
+telegram_chats_3 = ('hitbtc_scanner').split(',')
+
+# 4. rapid-price-drops
+discord_webhook_4 = 'https://discordapp.com/api/webhooks/433634950948978688/qmaxro9KmodBST3x48zSJ-JHsnjFNiqgVBk2dRH8LgcgBLXbQbJV8RaqzJUKM1KUn27v'
+telegram_chats_4 = ('rapid_trading_scanner').split(',')
+
+# 5. crypto-news
+discord_webhook_5 = 'https://discordapp.com/api/webhooks/433635768272027678/atb098BoDjCkZCEeR1CqMpvoK-drfzrrsD7PbG1BbsZgiTBauhz-R3DX0-l1GAo35H_d'
+telegram_chats_5 = ('biergodnews').split(',')
+
+# 6. coin-delistings
+discord_webhook_6 = 'https://discordapp.com/api/webhooks/433636015060680705/MSQ6Aaq4IgiSzxQX2tHuwc-mvVqoVGUrt6f3EFc1UxwutEMOhFPw2SPaGmdFPOS68-fa'
+telegram_chats_6 = ('BittrexDelistings').split(',')
+
+# 7. bitmex-liquidations
+discord_webhook_7 = 'https://discordapp.com/api/webhooks/433636393269461002/xv87dI88mGvWDuQEV3PR0eY3wbJ70szy_NNDBAWGkpJZbT_HCI1SYBCiGz6Y3cykk9_n'
+telegram_chats_7 = ('BitmexRekt').split(',')
+
+'''
 # Xypher
 discord_webhook_1 = 'https://discordapp.com/api/webhooks/428831056280551424/Fqvd2z98trD_cBgXexosew18VSwPG7sb79Ugei2IbVIF6qdABolp2w-nX8HHD8XvT4Qe'
 telegram_chats_1 = ('SharkSniper,CoinSniper,WallMonitor').split(',')
@@ -27,12 +56,16 @@ telegram_chats_3 = ('CocaKitty,cointrendz').split(',')
 # News
 discord_webhook_4 = 'https://discordapp.com/api/webhooks/427820403788873738/Ccgp5nsq0TncjsNvZB36XNoIFAIYcqyphS1AEk4P8yN6zM3zpRf7Kno-tGVvMvRYUlS7'
 telegram_chats_4 = ('www_Bitcoin_com,BitcoinBot').split(',')
+'''
 
 bindings = [
     {'discord_webhook': discord_webhook_1, 'telegram_chats': telegram_chats_1},
     {'discord_webhook': discord_webhook_2, 'telegram_chats': telegram_chats_2},
     {'discord_webhook': discord_webhook_3, 'telegram_chats': telegram_chats_3},
-    {'discord_webhook': discord_webhook_4, 'telegram_chats': telegram_chats_4}
+    {'discord_webhook': discord_webhook_4, 'telegram_chats': telegram_chats_4},
+    {'discord_webhook': discord_webhook_5, 'telegram_chats': telegram_chats_5},
+    {'discord_webhook': discord_webhook_6, 'telegram_chats': telegram_chats_6},
+    {'discord_webhook': discord_webhook_7, 'telegram_chats': telegram_chats_7}
 ]
 
 logging.basicConfig(
