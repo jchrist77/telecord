@@ -4,6 +4,7 @@ from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel
 import logging
 import os
+import re
 
 api_id = os.getenv('TELEGRAM_API_ID')
 api_hash = os.getenv('TELEGRAM_API_HASH')
@@ -78,25 +79,30 @@ client = TelegramClient('telegram', api_id, api_hash,
                         update_workers=4, spawn_read_thread=False)
 client.start()
 
+
+def add_handler(telegram_chats, discord_webhook):
+    @client.on(events.NewMessage(chats=telegram_chats, incoming=True))
+    def event_handler_(event):
+        msg_text = event.text  # event.raw_text
+        url_reg = r'(https?[:.]+[^\s\)]+)'
+        msg_text = re.sub(url_reg, r'<\1>', msg_text)
+        msg = Webhook(discord_webhook, msg=msg_text)
+        #print(event.input_sender, event.document, event.text)
+        logger.info('Delivered to webhook %s' % (discord_webhook))
+        msg.post()
+
+
 for bind in bindings:
-    chats = []
+    telegram_chats = []
     for chat in bind['telegram_chats']:
         if chat.isdigit():
             chat = int(chat)
-        chats.append(chat)
-    print('Channels: ', chats, ' ➡️  Webhook: ', bind['discord_webhook'])
+        telegram_chats.append(chat)
+    discord_webhook = bind['discord_webhook']
+    logger.info('Channels: %s  ➡️  Webhook: %s' %
+                (telegram_chats, discord_webhook))
+    add_handler(telegram_chats, discord_webhook)
 
-    @client.on(events.NewMessage(chats=chats, incoming=True))
-    def event_handler(event):
-        msg_text = event.text  # event.raw_text
-        import re
-        url_reg = r'(https?[:.]+[^\s\)]+)'
-        msg_text = re.sub(url_reg, r'<\1>', msg_text)
-        msg = Webhook(bind['discord_webhook'], msg=msg_text)
-        # print(event)
-        print(event.input_sender, event.document, event.text)
-        print('Delivered to webhook', bind['discord_webhook'])
-        msg.post()
 
 client.idle()
 client.disconnect()
