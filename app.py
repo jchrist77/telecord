@@ -1,4 +1,3 @@
-# import discord # learn more: https://python.org/pypi/discord
 from discord_hooks import Webhook
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel
@@ -11,8 +10,6 @@ import requests
 api_id = os.getenv('TELEGRAM_API_ID')
 api_hash = os.getenv('TELEGRAM_API_HASH')
 phone = os.getenv('PHONE_NUMBER')
-#discord_webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
-#telegram_chats = os.getenv('TELEGRAM_CHATS', []).split(',')
 
 # 1. base-cracks-binance
 webhook_1 = 'https://discordapp.com/api/webhooks/433634416837787649/HY7kU6BfNql1FoIwdFxzIrRo9tqRpTw7IUkIToas_O2tqjyNMOJ60RJfaHYcP6SqnR5Y'
@@ -42,33 +39,6 @@ telegram_chats_6 = ('BittrexDelistings').split(',')
 webhook_7 = 'https://discordapp.com/api/webhooks/433636393269461002/xv87dI88mGvWDuQEV3PR0eY3wbJ70szy_NNDBAWGkpJZbT_HCI1SYBCiGz6Y3cykk9_n'
 telegram_chats_7 = ('BitmexRekt').split(',')
 
-# 8. QFL DayTraders (to Slack #daytrade)
-webhook_8 = 'https://hooks.slack.com/services/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'
-telegram_chats_8 = ('QFLDayTradersTest').split(',')
-
-# 9. QFL DayTraders (to Discord #base-cracks-binance)
-webhook_9 = 'https://discordapp.com/api/webhooks/433634416837787649/HY7kU6BfNql1FoIwdFxzIrRo9tqRpTw7IUkIToas_O2tqjyNMOJ60RJfaHYcP6SqnR5Y'
-telegram_chats_9 = ('QFLDayTradersTest').split(',')
-
-'''
-# Xypher
-webhook_1 = 'https://discordapp.com/api/webhooks/428831056280551424/Fqvd2z98trD_cBgXexosew18VSwPG7sb79Ugei2IbVIF6qdABolp2w-nX8HHD8XvT4Qe'
-telegram_chats_1 = ('SharkSniper,CoinSniper,WallMonitor').split(',')
-
-# Base Signals
-webhook_2 = 'https://discordapp.com/api/webhooks/428831899037990922/L8esjfkS-oPw7oAhIE91G9EnOhzukC9oUyHR9QBhGYwe0egWpkLr_zueIZ4f9z2mokiQ'
-telegram_chats_2 = (
-    'binance_scanner,hitbtc_scanner,1151625426,1119530640').split(',')
-
-# TA Signals
-webhook_3 = 'https://discordapp.com/api/webhooks/428831478273671178/XQU0XyUCrq8_sbzJPyDdCUeqyta4NpPpZX84hSvpNjp7NBPbeVQUrc_ru_0mt8jEK2c7'
-telegram_chats_3 = ('CocaKitty,cointrendz').split(',')
-
-# News
-webhook_4 = 'https://discordapp.com/api/webhooks/427820403788873738/Ccgp5nsq0TncjsNvZB36XNoIFAIYcqyphS1AEk4P8yN6zM3zpRf7Kno-tGVvMvRYUlS7'
-telegram_chats_4 = ('www_Bitcoin_com,BitcoinBot').split(',')
-'''
-
 bindings = [
     {'webhook': webhook_1, 'telegram_chats': telegram_chats_1},
     {'webhook': webhook_2, 'telegram_chats': telegram_chats_2},
@@ -76,9 +46,7 @@ bindings = [
     {'webhook': webhook_4, 'telegram_chats': telegram_chats_4},
     {'webhook': webhook_5, 'telegram_chats': telegram_chats_5},
     {'webhook': webhook_6, 'telegram_chats': telegram_chats_6},
-    {'webhook': webhook_7, 'telegram_chats': telegram_chats_7},
-    {'webhook': webhook_8, 'telegram_chats': telegram_chats_8},
-    {'webhook': webhook_9, 'telegram_chats': telegram_chats_9}
+    {'webhook': webhook_7, 'telegram_chats': telegram_chats_7}
 ]
 
 logging.basicConfig(
@@ -134,17 +102,3 @@ for bind in bindings:
 
 client.idle()
 client.disconnect()
-
-# Resources
-# https://www.devdungeon.com/content/discord-webhook-tutorial-check-bitcoin-price-python
-# https://www.devdungeon.com/content/make-discord-bot-python-part-2
-# https://hackaday.com/2018/02/15/creating-a-discord-webhook-in-python/
-# https://github.com/fritzr/discord-twitter-bot
-# https://github.com/NxtStudios/DiscordHooks
-# https://habrahabr.ru/post/322078/
-# https://toster.ru/q/466436
-# https://github.com/DevDungeon/ChattyCathy
-# https://github.com/kyb3r/dhooks
-# https://github.com/aubguillemette/discord2slack
-# http://telethon.readthedocs.io/en/latest/extra/basic/entities.html
-# https://gist.github.com/devStepsize/b1b795309a217d24566dcc0ad136f784
