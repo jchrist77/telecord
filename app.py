@@ -12,31 +12,31 @@ api_hash = os.getenv('TELEGRAM_API_HASH')
 phone = os.getenv('PHONE_NUMBER')
 
 # 1. base-cracks-binance
-webhook_1 = 'https://discordapp.com/api/webhooks/433634416837787649/HY7kU6BfNql1FoIwdFxzIrRo9tqRpTw7IUkIToas_O2tqjyNMOJ60RJfaHYcP6SqnR5Y'
+webhook_1 = 'https://discordapp.com/api/webhooks/442393941439152128/mL60C6DEu9jttyOhw0xmaeMoXhcmXA-PQXtKGpLpUOLla0XgQ7A4mZ7j8iyRsg_oEyky'
 telegram_chats_1 = ('binance_scanner,1151625426,1119530640').split(',')
 
 # 2. base-cracks-bittrex
-webhook_2 = 'https://discordapp.com/api/webhooks/433634706572050453/gn0auB-1ssEuGSzqLtgCPd3EjHQPCbJX9bjnuNiY5yLdyBdGTwCdpqR-pBPQdhfHI9T5'
+webhook_2 = 'https://discordapp.com/api/webhooks/442395395356622849/N8TjiGhCibFD-NEhoWrwOyEvhF-XlxTqll-eY-pH2eDMiqoNZjwsMglIgdquSmM4-nER'
 telegram_chats_2 = ('1158021569,1319829254').split(',')
 
 # 3. base-cracks-hitbtc
-webhook_3 = 'https://discordapp.com/api/webhooks/433634828982812683/hU1zXSqN_H12ZQrMmTOXxbopzKFWy7a5AnNsgpcEsM0TFqHl2w69gpnP583Krr9Gfphv'
+webhook_3 = 'https://discordapp.com/api/webhooks/442395499736203265/718irsLgevB7fDNZ0O5pSgadvZ9sl0K5-FxtyMNxZKfXxrnCi_LjhgpPb0oJZVVLEPdF'
 telegram_chats_3 = ('hitbtc_scanner').split(',')
 
 # 4. rapid-price-drops
-webhook_4 = 'https://discordapp.com/api/webhooks/433634950948978688/qmaxro9KmodBST3x48zSJ-JHsnjFNiqgVBk2dRH8LgcgBLXbQbJV8RaqzJUKM1KUn27v'
+webhook_4 = 'https://discordapp.com/api/webhooks/442395609941540866/77wb_IOlzu4UCwwnkeclR7QgZOvukds6fHn_5anGBr6JrjLWxao27rMsd1Y6FRlLkcPg'
 telegram_chats_4 = ('rapid_trading_scanner').split(',')
 
 # 5. crypto-news
-webhook_5 = 'https://discordapp.com/api/webhooks/433635768272027678/atb098BoDjCkZCEeR1CqMpvoK-drfzrrsD7PbG1BbsZgiTBauhz-R3DX0-l1GAo35H_d'
+webhook_5 = 'https://discordapp.com/api/webhooks/442395750404456451/Vl3ETu_7q-STA4Fy621kfkxN291LhVy-IfOjn5Tbg074sNv-TvDAwSTgh2aYFCsvJ3W5'
 telegram_chats_5 = ('biergodnews').split(',')
 
 # 6. coin-delistings
-webhook_6 = 'https://discordapp.com/api/webhooks/433636015060680705/MSQ6Aaq4IgiSzxQX2tHuwc-mvVqoVGUrt6f3EFc1UxwutEMOhFPw2SPaGmdFPOS68-fa'
+webhook_6 = 'https://discordapp.com/api/webhooks/442395840670072832/Yrh4Sj9juK9q7wLV9UD6-ZiR8m1dxCKGwc58jk9Jd3lCTvrUhPie4JydpyiAdImSAy0E'
 telegram_chats_6 = ('BittrexDelistings').split(',')
 
 # 7. bitmex-liquidations
-webhook_7 = 'https://discordapp.com/api/webhooks/433636393269461002/xv87dI88mGvWDuQEV3PR0eY3wbJ70szy_NNDBAWGkpJZbT_HCI1SYBCiGz6Y3cykk9_n'
+webhook_7 = 'https://discordapp.com/api/webhooks/442396052050542612/ZG9Pb8ZPa1wcwxlgr8FAX0EYadLCyThZckYWRvBWmCGWkSC7f50PeBoDrJWik-hsah1p'
 telegram_chats_7 = ('BitmexRekt').split(',')
 
 bindings = [
