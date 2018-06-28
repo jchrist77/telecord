@@ -7,6 +7,7 @@ import os
 import re
 import json
 import requests
+import asyncio
 
 # load dotenv in the base root
 APP_ROOT = os.path.join(os.path.dirname(__file__), '.')
@@ -41,21 +42,23 @@ bindings = [
      'telegram_chats': os.getenv('TELEGRAM_CHANNEL_10').split(',')}
 ]
 
-
+# setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S')
 logger = logging.getLogger(__name__)
 
-client = TelegramClient('telegram', api_id, api_hash,
-                        update_workers=4, spawn_read_thread=False)
-client.start(phone)
+client = TelegramClient('telegram', api_id, api_hash)
+
+
+# async def main():
+#    await client.start(phone)
 
 
 def add_handler(telegram_chats, webhook):
     @client.on(events.NewMessage(chats=telegram_chats, incoming=True))
-    def event_handler(event):
+    async def event_handler(event):
         if "discordapp.com" in webhook:
             post_to_discord(event, webhook)
         elif "slack.com" in webhook:
@@ -95,5 +98,9 @@ for bind in bindings:
     add_handler(telegram_chats, webhook)
 
 
-client.idle()
-client.disconnect()
+if __name__ == '__main__':
+    client.start(phone)
+    client.run_until_disconnected()
+
+# client.idle()
+# client.disconnect()
