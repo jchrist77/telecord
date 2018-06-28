@@ -16,50 +16,29 @@ load_dotenv(dotenv_path)
 api_id = os.getenv('TELEGRAM_API_ID')
 api_hash = os.getenv('TELEGRAM_API_HASH')
 phone = os.getenv('PHONE_NUMBER')
-print(phone)
 
-# 1. kings-of-binance
-webhook_1 = os.getenv('DISCORD_WEBHOOK_1')
-telegram_chats_1 = os.getenv('TELEGRAM_CHANNEL_1').split(',')
-
-# 2. crypto-society
-webhook_2 = os.getenv('DISCORD_WEBHOOK_2')
-telegram_chats_2 = os.getenv('TELEGRAM_CHANNEL_2').split(',')
-
-# 3. highest-crypto
-webhook_3 = os.getenv('DISCORD_WEBHOOK_3')
-telegram_chats_3 = os.getenv('TELEGRAM_CHANNEL_3').split(',')
-
-# 4. whale-leaks
-webhook_4 = os.getenv('DISCORD_WEBHOOK_4')
-telegram_chats_4 = os.getenv('TELEGRAM_CHANNEL_4').split(',')
-
-# 5. ???
-webhook_5 = os.getenv('DISCORD_WEBHOOK_5')
-telegram_chats_5 = os.getenv('TELEGRAM_CHANNEL_5').split(',')
-
-# 6. ???
-webhook_6 = os.getenv('DISCORD_WEBHOOK_6')
-telegram_chats_6 = os.getenv('TELEGRAM_CHANNEL_6').split(',')
-
-# 7. ???
-webhook_7 = os.getenv('DISCORD_WEBHOOK_7')
-telegram_chats_7 = os.getenv('TELEGRAM_CHANNEL_7').split(',')
-
-# 8. ???
-webhook_8 = os.getenv('DISCORD_WEBHOOK_8')
-telegram_chats_8 = os.getenv('TELEGRAM_CHANNEL_8').split(',')
-
-
+# mappings between telegram sources and webhook destinations (discord/slack)
 bindings = [
-    {'webhook': webhook_1, 'telegram_chats': telegram_chats_1},
-    {'webhook': webhook_2, 'telegram_chats': telegram_chats_2},
-    {'webhook': webhook_3, 'telegram_chats': telegram_chats_3},
-    {'webhook': webhook_4, 'telegram_chats': telegram_chats_4},
-    {'webhook': webhook_5, 'telegram_chats': telegram_chats_5},
-    {'webhook': webhook_6, 'telegram_chats': telegram_chats_6},
-    {'webhook': webhook_7, 'telegram_chats': telegram_chats_7},
-    {'webhook': webhook_8, 'telegram_chats': telegram_chats_8}
+    {'webhook': os.getenv('DISCORD_WEBHOOK_1'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_1').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_2'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_2').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_3'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_3').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_4'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_4').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_5'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_5').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_6'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_6').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_7'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_7').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_8'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_8').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_9'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_9').split(',')},
+    {'webhook': os.getenv('DISCORD_WEBHOOK_10'),
+     'telegram_chats': os.getenv('TELEGRAM_CHANNEL_10').split(',')}
 ]
 
 
@@ -78,11 +57,9 @@ def add_handler(telegram_chats, webhook):
     @client.on(events.NewMessage(chats=telegram_chats, incoming=True))
     def event_handler(event):
         if "discordapp.com" in webhook:
-            #post_to_discord(event, webhook)
-            logger.info('Posting to Discord')
+            post_to_discord(event, webhook)
         elif "slack.com" in webhook:
-            #post_to_slack(event, webhook)
-            logger.info('Posting to Slack')
+            post_to_slack(event, webhook)
 
 
 def post_to_discord(event, webhook):
