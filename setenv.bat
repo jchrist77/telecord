@@ -1,7 +1,0 @@
-@echo off
-set TELEGRAM_API_ID=158482
-set TELEGRAM_API_HASH=7afdedabc81fe60ee36c8f729e588a10
-set DISCORD_WEBHOOK_URL=https://discordapp.com/api/webhooks/427820403788873738/Ccgp5nsq0TncjsNvZB36XNoIFAIYcqyphS1AEk4P8yN6zM3zpRf7Kno-tGVvMvRYUlS7
-set DISCORD_WEHBOOK_URL_TEST=https://discordapp.com/api/webhooks/428211593575399424/iPRglPB5587rfs5ryRTGXR3nJkMwoG1eJ5j0TiiZ_e5NkcI8wH6JMZxT489utDQrJcvO
-set PHONE_NUMBER=+4369918127316
-set TELEGRAM_CHATS=SharkSniper,CoinSniper,WallMonitor,binance_scanner,1151625426,1119530640,CocaKitty,cointrendz,www_Bitcoin_com,BitcoinBot
