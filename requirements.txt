@@ -1,5 +1,6 @@
 asyncio
 requests
 telethon
+telepot
 flask
 python-dotenv
