@@ -52,10 +52,6 @@ logger = logging.getLogger(__name__)
 client = TelegramClient('telegram', api_id, api_hash)
 
 
-# async def main():
-#    await client.start(phone)
-
-
 def add_handler(telegram_chats, webhook):
     @client.on(events.NewMessage(chats=telegram_chats, incoming=True))
     async def event_handler(event):
@@ -79,6 +75,7 @@ def post_to_slack(event, webhook):
     msg_text = event.text  # event.raw_text
     url_reg = r'(https?[:.]+[^\s\)]+)'
     msg_text = re.sub(url_reg, r'<\1>', msg_text)
+    msg_text = msg_text + "\n━━━━━━━━━━━━━━━━━━"
     resp = requests.post(webhook, json={"text": msg_text, "mrkdwn": True}, headers={
                          'Content-Type': 'application/json'})
     logger.info('Delivered to webhook %s (response: %s)' %
@@ -101,6 +98,3 @@ for bind in bindings:
 if __name__ == '__main__':
     client.start(phone)
     client.run_until_disconnected()
-
-# client.idle()
-# client.disconnect()
