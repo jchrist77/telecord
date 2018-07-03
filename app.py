@@ -65,10 +65,12 @@ def post_to_discord(event, webhook):
     msg_text = event.text  # event.raw_text
     url_reg = r'(https?[:.]+[^\s\)]+)'
     msg_text = re.sub(url_reg, r'<\1>', msg_text)
+    msg_text = msg_text + "\n━━━━━━━━━━━━━━━━━━"
     msg = Webhook(webhook, msg=msg_text)
     msg.post()
     #print(event.input_sender, event.document, event.text)
-    logger.info('Delivered to webhook %s' % (webhook))
+    logger.info('[%s] Delivered to Discord webhook %s' %
+                (event.input_sender, webhook))
 
 
 def post_to_slack(event, webhook):
@@ -78,8 +80,8 @@ def post_to_slack(event, webhook):
     msg_text = msg_text + "\n━━━━━━━━━━━━━━━━━━"
     resp = requests.post(webhook, json={"text": msg_text, "mrkdwn": True}, headers={
                          'Content-Type': 'application/json'})
-    logger.info('Delivered to webhook %s (response: %s)' %
-                (webhook, resp.status_code))
+    logger.info('[%s] Delivered to Slack webhook %s (response: %s)' %
+                (event.input_sender, webhook, resp.status_code))
 
 
 for bind in bindings:
